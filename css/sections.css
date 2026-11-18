@@ -1,0 +1,407 @@
+/* ═══════════════════════════════════════════════════════════
+   sections.css — Date · Letter · Venue · Closing
+   ═══════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════
+   DATE SECTION
+   ═══════════════════════════════════ */
+.date-section {
+  padding-top: 55px;
+  padding-bottom: 90px;
+  background: var(--paper);
+}
+.date-section::before,
+.closing-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url('../assets/stationery/embossed-paper.webp') center / 100% 100%;
+  opacity: 0.18;
+}
+
+/* ── Scratch Cards ────────────────────────────────────────── */
+.scratch-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 35px auto 21px;
+  position: relative;
+  max-width: 460px;
+}
+.scratch-cell {
+  width: 32%;
+  height: 116px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.scratch-cell canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  touch-action: pan-y;
+  cursor: crosshair;
+  transition: opacity 0.7s;
+}
+.scratch-cell canvas.scratching { touch-action: none; }
+.scratch-cell.complete canvas  { opacity: 0; pointer-events: none; }
+
+.date-value {
+  font-size: 43px;
+  line-height: 1.1;
+  color: var(--burgundy);
+}
+.date-day   { font-size: clamp(29px, 8vw, 39px); white-space: nowrap; }
+.date-month { font-style: italic; font-size: clamp(23px, 6vw, 29px); }
+.date-unit  {
+  font: 8px var(--serif);
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+.date-dot   { color: var(--rose); }
+
+/* ── Countdown ────────────────────────────────────────────── */
+.countdown {
+  margin: 55px auto 0;
+  padding-top: 30px;
+  position: relative;
+  border-top: 1px solid rgba(var(--burgundy-rgb) / 20%);
+  max-width: 330px;
+}
+.countdown > p {
+  font: italic 20px / 1.4 var(--serif);
+  margin-bottom: 23px;
+  color: var(--muted);
+}
+.countdown-values {
+  display: flex;
+  justify-content: center;
+  gap: 17px;
+  align-items: flex-start;
+}
+.countdown-values > div { min-width: 41px; }
+.countdown-values span {
+  display: block;
+  font-size: 31px;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  color: var(--burgundy);
+}
+.countdown-values small {
+  font: 7px var(--serif);
+  letter-spacing: 1.8px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.countdown-values i {
+  font: 20px var(--serif);
+  opacity: 0.4;
+  margin-top: 3px;
+  color: var(--gold);
+}
+
+/* ═══════════════════════════════════
+   INVITATION LETTER SECTION
+   ═══════════════════════════════════ */
+.letter-section {
+  padding-top: 45px;
+  padding-bottom: 90px;
+  background: linear-gradient(var(--paper), #f1e0db 90%, var(--paper));
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* ── Scroll-driven letter extraction ─────────────────────── */
+.letter-scroll {
+  --letter-pocket-height: clamp(200px, 30svh, 280px);
+  --letter-scene-height: min(calc(100svh - 32px), calc(var(--letter-pocket-height) + 220px));
+  --letter-pin-top:      max(16px, calc(100svh - var(--letter-scene-height) - 24px));
+  position: relative;
+  height: calc(var(--letter-scene-height) + var(--letter-scroll-distance, 900px));
+  margin: 20px auto 0;
+  max-width: 480px;
+}
+.letter-envelope {
+  --letter-offset: 500px;
+  position: sticky;
+  top: var(--letter-pin-top);
+  height: var(--letter-scene-height);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  clip-path: inset(calc(16px - var(--letter-pin-top)) 0 0);
+  isolation: isolate;
+}
+
+/* ── Letter Paper ─────────────────────────────────────────── */
+.invitation-letter {
+  position: absolute;
+  top: 0;
+  left: 14px;
+  right: 14px;
+  background: var(--letter-paper);
+  padding: 37px 30px 30px;
+  box-shadow: 0 0 18px rgb(var(--burgundy-rgb) / 6%), 0 3px 8px rgb(var(--burgundy-rgb) / 6%);
+  border: 1px solid #d5b992;
+  transform: translate3d(0, var(--letter-offset, 500px), 0);
+  z-index: 1;
+}
+.invitation-letter::before {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(180, 141, 93, 0.38);
+  pointer-events: none;
+}
+
+/* ── Letter Back (envelope pocket) ───────────────────────── */
+.letter-back {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: calc(var(--letter-pocket-height) + 185px);
+  background: var(--burgundy) url('../assets/stationery/embossed-envelope.webp') center top / cover no-repeat;
+  clip-path: polygon(0 29%, 50% 0, 100% 29%, 100% 100%, 0 100%);
+  z-index: 0;
+  transform: none;
+}
+
+/* ── Letter Front (envelope flap overlay) ────────────────── */
+.letter-front {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: var(--letter-pocket-height);
+  clip-path: polygon(0 0, 50% 35%, 100% 0, 100% 100%, 0 100%);
+  background: var(--burgundy) url('../assets/stationery/embossed-envelope.webp') center bottom / 100% auto no-repeat;
+  z-index: 2;
+  padding-top: calc(var(--letter-pocket-height) * 0.6);
+  filter: drop-shadow(0 5px 6px #43102530);
+  transform: none;
+  text-align: center;
+}
+.letter-front::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/stationery/ivory-lace-trim.webp') center / 100% 100% no-repeat;
+  clip-path: none;
+  transform: none;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
+}
+.letter-front::after { display: none; }
+.letter-front > span,
+.letter-front > small {
+  position: relative;
+  z-index: 1;
+  color: #f8e3be;
+  text-shadow: 0 1px 2px #43102533;
+}
+.letter-front > span {
+  display: block;
+  font-family: var(--names);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 35px;
+  line-height: 1.3;
+  letter-spacing: 2px;
+}
+.letter-front > span i {
+  font-family: inherit;
+  font-style: italic;
+  font-size: 22px;
+  letter-spacing: 0;
+  margin: 0 2px;
+}
+.letter-front > small {
+  display: block;
+  font: 400 7px / 1.5 var(--serif);
+  letter-spacing: 2.2px;
+  color: #f8e3be;
+  margin-top: 5px;
+}
+
+/* ── Letter Content ───────────────────────────────────────── */
+.invitation-letter h3 {
+  font: 400 28px var(--script);
+  color: var(--burgundy);
+  margin-bottom: 22px;
+}
+.invitation-letter > p:not(.letter-blessing) {
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.invitation-letter em  { color: var(--burgundy); font-size: 23px; }
+.letter-divider        { color: var(--gold); margin: 18px auto; font-size: 20px; }
+.letter-signoff        { margin-top: 25px; color: var(--muted); font-size: 20px; }
+
+/* ── Family Names ─────────────────────────────────────────── */
+.letter-families {
+  position: relative;
+  margin: 20px auto 10px;
+  text-align: center;
+}
+.couple-family { }
+.family-name {
+  font-family: var(--names);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 42px;
+  line-height: 1.2;
+  color: var(--burgundy);
+  margin-bottom: 7px;
+}
+.family-parents {
+  font: 400 18px / 1.5 var(--serif);
+  color: var(--muted);
+  text-wrap: balance;
+}
+.family-ampersand {
+  display: block;
+  font-family: var(--names);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 27px;
+  line-height: 1.3;
+  color: var(--gold);
+  margin: 18px auto;
+}
+
+/* ═══════════════════════════════════
+   VENUE SECTION
+   ═══════════════════════════════════ */
+.venue-section {
+  padding: 65px var(--section-pad-h) 70px;
+  isolation: isolate;
+  min-height: 580px;
+  text-align: center;
+  position: relative;
+}
+
+/* Background art — decorative */
+.venue-art {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(var(--paper), #fcf5ece8 20%, #fcf5ece8 85%, var(--paper)), url('../assets/images/palace-hero.webp') center 75% / cover;
+}
+
+/* ── Venue Arch Card ──────────────────────────────────────── */
+.venue-arch {
+  border: 1px solid rgba(var(--burgundy-rgb) / 55%);
+  border-radius: 180px 180px 3px 3px;
+  max-width: 370px;
+  margin: 28px auto 0;
+  padding: 43px 20px 35px;
+  background: rgba(255, 249, 239, 0.93);
+  box-shadow: 0 5px 30px rgb(var(--burgundy-rgb) / 5%);
+  backdrop-filter: blur(5px);
+}
+.venue-arch > span { font-size: 38px; color: var(--gold); }
+.venue-arch h3  {
+  font: 36px var(--serif);
+  color: var(--burgundy);
+  line-height: 1.2;
+  margin: 12px 0 10px;
+}
+.venue-arch p   { font-size: 21px; color: var(--muted); }
+.venue-rule {
+  height: 1px;
+  width: 38px;
+  background: var(--gold);
+  margin: 23px auto;
+}
+.venue-arch .venue-time {
+  font-style: italic;
+  font-size: 18px;
+  margin-top: 5px;
+}
+.venue-arch .outline-button { margin-top: 25px; }
+
+/* ═══════════════════════════════════
+   CLOSING SECTION
+   ═══════════════════════════════════ */
+.closing-section {
+  padding-top: 55px;
+  padding-bottom: 45px;
+  text-align: center;
+  position: relative;
+  background: var(--paper);
+}
+.closing-section h2 {
+  max-width: 400px;
+  margin: 0 auto 32px;
+  font-size: 48px;
+}
+.closing-section > p:not(.eyebrow):not(.closing-love) {
+  font-size: 21px;
+  line-height: 1.65;
+  max-width: 440px;
+  margin: 0 auto 20px;
+  position: relative;
+  color: var(--muted);
+}
+.closing-love {
+  font-size: 20px;
+  font-style: italic;
+  margin: 35px 0;
+  color: var(--muted);
+}
+.closing-love > span {
+  display: block;
+  font-family: var(--names);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 42px;
+  margin-top: 12px;
+  color: var(--burgundy);
+}
+
+/* ── Monogram ─────────────────────────────────────────────── */
+.footer-monogram {
+  font-family: var(--names);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 64px;
+  color: var(--gold);
+  letter-spacing: 3px;
+  margin: 55px 0 18px;
+}
+.footer-monogram > span {
+  display: inline-block;
+  font-style: italic;
+  font-size: 32px;
+  margin: 0 6px;
+}
+
+/* ── Closing Tagline ──────────────────────────────────────── */
+.closing-tagline {
+  position: relative;
+  margin: 24px auto 0;
+  color: var(--muted);
+  font: italic 21px / 1.6 var(--serif);
+}
+.closing-tagline .closing-hashtag {
+  margin-top: 8px;
+  color: var(--gold);
+  font-style: normal;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+/* ── Decorative footer rule ───────────────────────────────── */
+.closing-floral {
+  font-size: 28px;
+  color: var(--gold);
+  margin: 30px 0 0;
+  opacity: 0.6;
+}

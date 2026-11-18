@@ -1,0 +1,198 @@
+/* ═══════════════════════════════════════════════════════════
+   gallery.css — Photo Gallery · Lightbox Dialog
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Gallery Section ──────────────────────────────────────── */
+.gallery-section {
+  padding: 65px 0 55px;
+  background: #f5eadd;
+  color: var(--burgundy);
+  text-align: center;
+  position: relative;
+}
+.gallery-header {
+  padding: 0 25px;
+}
+.gallery-header .eyebrow {
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+.gallery-header .script-heading {
+  font-size: clamp(40px, 10vw, 54px);
+  margin: 17px auto 20px;
+}
+.gallery-header > p:last-child {
+  font: italic 21px / 1.5 var(--serif);
+  color: var(--muted);
+}
+
+/* ── Photo Track ──────────────────────────────────────────── */
+.gallery-track {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 8px 9% 14px;
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gallery-track::-webkit-scrollbar { display: none; }
+
+.gallery-slide {
+  min-width: 0;
+  flex: 0 0 82vw;
+  max-width: 520px;
+  scroll-snap-align: center;
+}
+.gallery-slide figure {
+  margin: 0;
+  padding: 9px 9px 0;
+  background: var(--letter-paper);
+  box-shadow: 0 4px 16px rgb(85 40 47 / 7%);
+}
+
+/* ── Photo Button ─────────────────────────────────────────── */
+.gallery-photo {
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: #e5d4c4;
+  overflow: hidden;
+  cursor: zoom-in;
+  aspect-ratio: 4 / 5;
+}
+.gallery-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 58%;
+  transition: transform 0.4s ease;
+}
+.gallery-photo:hover img { transform: scale(1.03); }
+
+/* ── Figure Caption ───────────────────────────────────────── */
+.gallery-slide figcaption {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 72px;
+  padding: 16px 10px;
+  text-align: left;
+}
+.gallery-slide figcaption p {
+  font: italic 23px / 1.2 var(--serif);
+  color: var(--burgundy);
+  text-wrap: balance;
+}
+
+/* ── Hint text ────────────────────────────────────────────── */
+.gallery-hint {
+  font: italic 16px / 1.5 var(--serif);
+  color: var(--muted);
+  margin: 20px 20px 0;
+}
+
+/* ═══════════════════════════════════
+   LIGHTBOX DIALOG
+   ═══════════════════════════════════ */
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #211417;
+  color: #fff2de;
+  overflow: auto;
+}
+.gallery-lightbox::backdrop {
+  background: rgba(33, 20, 23, 0.96);
+}
+.gallery-lightbox[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Toolbar ──────────────────────────────────────────────── */
+.lightbox-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: max(16px, env(safe-area-inset-top)) 20px 10px;
+  flex-shrink: 0;
+}
+.lightbox-toolbar p {
+  font: 14px var(--serif);
+  letter-spacing: 1px;
+}
+
+/* ── Navigation ───────────────────────────────────────────── */
+.lightbox-nav {
+  display: flex;
+  gap: 8px;
+}
+.lightbox-prev,
+.lightbox-next,
+#lightbox-close {
+  background: none;
+  color: inherit;
+  font-size: 20px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+.lightbox-prev:hover,
+.lightbox-next:hover,
+#lightbox-close:hover { opacity: 1; }
+.lightbox-prev[disabled],
+.lightbox-next[disabled] { opacity: 0.25; cursor: default; }
+
+/* ── Stage ────────────────────────────────────────────────── */
+.lightbox-stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 65px;
+}
+#lightbox-image {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+}
+
+/* ── Caption ──────────────────────────────────────────────── */
+#lightbox-caption {
+  font: italic 24px / 1.4 var(--serif);
+  text-align: center;
+  padding: 18px 24px max(26px, env(safe-area-inset-bottom));
+  flex-shrink: 0;
+}
+
+/* ── Position indicator ───────────────────────────────────── */
+#lightbox-position {
+  font: 14px var(--serif);
+  letter-spacing: 1px;
+}
+
+/* ── Body lock when lightbox is open ─────────────────────── */
+body.gallery-viewing { overflow: hidden; }
+body.gallery-viewing .music-toggle { visibility: hidden; }

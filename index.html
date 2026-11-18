@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en" data-invitation-state="closed">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#6c2e31">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Celebrate Vishal &amp; Shruti: two days of wedding celebrations on 25 &amp; 26 November 2026 at The Heritage Resorts. Haldi, Tilak, Sangeet, Bhaat, Baraat and Varmala / Reception.">
+  <title>Vishal &amp; Shruti — A Little Invitation to Forever</title>
+
+  <!-- Canonical & Open Graph -->
+  <link rel="canonical" href="https://vishalandshruti.pages.dev/">
+  <meta property="og:type"        content="website">
+  <meta property="og:locale"      content="en_IN">
+  <meta property="og:site_name"   content="Vishal &amp; Shruti">
+  <meta property="og:url"         content="https://vishalandshruti.pages.dev/">
+  <meta property="og:title"       content="Vishal &amp; Shruti — A Little Invitation to Forever">
+  <meta property="og:description" content="Join us for two days of wedding celebrations on 25 &amp; 26 November 2026 at The Heritage Resorts.">
+  <meta property="og:image"       content="https://vishalandshruti.pages.dev/assets/social/whatsapp-preview-v1.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="1200">
+  <meta property="og:image:alt"    content="Vishal and Shruti's wedding invitation: 25 and 26 November 2026 at The Heritage Resorts, framed by a floral palace arch.">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Vishal &amp; Shruti — A Little Invitation to Forever">
+  <meta name="twitter:description" content="Join us for two days of wedding celebrations on 25 &amp; 26 November 2026 at The Heritage Resorts.">
+  <meta name="twitter:image"       content="https://vishalandshruti.pages.dev/assets/social/whatsapp-preview-v1.jpg">
+
+  <!-- Favicon: inline SVG monogram -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%236c2e31'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='serif' font-size='22' fill='%23e3c18b'%3EV%26S%3C/text%3E%3C/svg%3E">
+
+  <!-- Preload critical assets -->
+  <link rel="preload" href="assets/stationery/embossed-envelope.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="assets/stationery/blank-wax-seal.webp" as="image">
+  <link rel="preload" href="assets/images/palace-hero.webp" as="image">
+
+  <!-- Google Fonts — self-hosted fallback supported -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Great+Vibes&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Great+Vibes&display=swap">
+
+  <!-- Stylesheets (order matters) -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/opening.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/events.css">
+  <link rel="stylesheet" href="css/gallery.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Desktop side caption (decorative) -->
+  <div class="desktop-caption" aria-hidden="true">
+    <span>VISHAL &amp; SHRUTI</span>
+    <i>A little invitation to forever</i>
+    <span>25–26 · 11 · 2026</span>
+  </div>
+
+  <!-- ═════════════════════════════════════════════════
+       SECTION 1: ENVELOPE OPENING
+       ═════════════════════════════════════════════════ -->
+  <div
+    id="opening"
+    class="opening"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Open Vishal and Shruti's wedding invitation"
+    tabindex="-1"
+  >
+    <div class="opening-stage">
+      <!-- Hero scene revealed behind the opening envelope -->
+      <div class="opening-destination" aria-hidden="true"></div>
+
+      <!-- Envelope -->
+      <div class="envelope-scene">
+        <div class="envelope-fold envelope-left"   aria-hidden="true"></div>
+        <div class="envelope-fold envelope-right"  aria-hidden="true"></div>
+        <div class="envelope-fold envelope-bottom" aria-hidden="true"></div>
+        <div class="envelope-upper">
+          <div class="envelope-fold envelope-top"  aria-hidden="true"></div>
+          <button
+            id="open-invitation"
+            class="seal-button"
+            aria-label="Open Vishal and Shruti's wedding invitation"
+          >
+            <span class="seal-face" aria-hidden="true">
+              <img
+                src="assets/stationery/blank-wax-seal.webp"
+                alt=""
+                width="512" height="512"
+                fetchpriority="high"
+              >
+              <span class="seal-monogram">V <i>&amp;</i> S</span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Cover text -->
+      <div class="cover-lettering">
+        <p>You are invited</p>
+        <svg viewBox="0 0 180 24" aria-hidden="true" focusable="false">
+          <path d="M83 12C64 12 51 20 31 15S9 5 5 12C2 18 15 20 22 12M97 12C116 12 129 20 149 15S171 5 175 12C178 18 165 20 158 12M85 12L90 7L95 12L90 17Z"></path>
+          <path d="M65 14Q55 4 44 7M115 14Q125 4 136 7"></path>
+        </svg>
+      </div>
+      <div class="cover-hint" aria-hidden="true">
+        <p>TAP ANYWHERE TO OPEN</p>
+        <span></span>
+      </div>
+    </div>
+    <p class="opening-status" aria-live="polite"></p>
+  </div><!-- /#opening -->
+
+
+  <!-- ═════════════════════════════════════════════════
+       MAIN INVITATION CONTENT
+       ═════════════════════════════════════════════════ -->
+  <main id="invitation">
+
+    <!-- ─────────────────────────────────────────────
+         SECTION 2: HERO
+         ───────────────────────────────────────────── -->
+    <section class="hero" id="home" aria-labelledby="couple-names">
+      <div class="hero-art" aria-hidden="true"></div>
+      <div class="hero-florals is-running" aria-hidden="true"></div>
+
+      <div class="hero-copy">
+        <p class="hero-prelude">With the blessings of Lord Ganesha,</p>
+        <p class="hero-forever">and our families, our forever begins.</p>
+
+        <h1 id="couple-names" tabindex="-1">
+          <span>Vishal</span>
+          <em>&amp;</em>
+          <span>Shruti</span>
+        </h1>
+
+        <p class="hero-subtitle">Two souls, seven promises,<br>a lifetime of love.</p>
+        <p class="hero-date">25 &amp; 26 NOVEMBER 2026</p>
+      </div>
+
+      <a class="scroll-invitation" href="#the-date">
+        <span>OUR FOREVER STARTS HERE</span>
+        <span class="scroll-line"></span>
+      </a>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────
+         SECTION 3: INTERACTIVE DATE REVEAL
+         ───────────────────────────────────────────── -->
+    <section class="date-section section" id="the-date" aria-labelledby="date-heading">
+      <p class="eyebrow reveal">A LITTLE SECRET, JUST FOR YOU</p>
+      <h2 class="script-heading reveal" id="date-heading">A date to remember…</h2>
+      <p class="section-intro reveal">Scratch to reveal two days<br>of love, laughter &amp; celebration.</p>
+
+      <button id="reveal-date" class="text-button reveal" aria-live="polite">
+        <span class="scratch-hand" aria-hidden="true">✧</span> Scratch with your finger, or tap to reveal
+      </button>
+
+      <div
+        class="scratch-date reveal"
+        role="group"
+        aria-label="Scratch cards revealing our celebration dates"
+      >
+        <div class="scratch-cell">
+          <span class="date-value date-day"   aria-label="Days: 25 and 26">25–26</span>
+          <span class="date-unit">DAYS</span>
+          <canvas aria-hidden="true" data-scratch="0" width="173" height="145"></canvas>
+        </div>
+        <span class="date-dot" aria-hidden="true">·</span>
+        <div class="scratch-cell">
+          <span class="date-value date-month" aria-label="Month: November">November</span>
+          <span class="date-unit">MONTH</span>
+          <canvas aria-hidden="true" data-scratch="1" width="173" height="145"></canvas>
+        </div>
+        <span class="date-dot" aria-hidden="true">·</span>
+        <div class="scratch-cell">
+          <span class="date-value date-year"  aria-label="Year: 2026">2026</span>
+          <span class="date-unit">YEAR</span>
+          <canvas aria-hidden="true" data-scratch="2" width="173" height="145"></canvas>
+        </div>
+      </div>
+
+      <!-- Google Calendar link — revealed after scratching -->
+      <a
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="outline-button reveal"
+        id="calendar-link"
+        aria-label="Add all wedding functions to Google Calendar (opens new tab)"
+        hidden
+      >
+        <span aria-hidden="true">＋</span> ADD TO GOOGLE CALENDAR
+      </a>
+
+      <!-- Live countdown -->
+      <div class="countdown reveal" aria-label="Countdown to our wedding">
+        <p>Counting down to Varmala &amp; Reception</p>
+        <div class="countdown-values">
+          <div>
+            <span data-count="days">00</span>
+            <small>DAYS</small>
+          </div>
+          <i aria-hidden="true">:</i>
+          <div>
+            <span data-count="hours">00</span>
+            <small>HOURS</small>
+          </div>
+          <i aria-hidden="true">:</i>
+          <div>
+            <span data-count="minutes">00</span>
+            <small>MINUTES</small>
+          </div>
+          <i aria-hidden="true">:</i>
+          <div>
+            <span data-count="seconds">00</span>
+            <small>SECONDS</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────
+         SECTION 4: INVITATION LETTER
+         ───────────────────────────────────────────── -->
+    <section class="letter-section section" id="our-invitation" aria-labelledby="letter-heading">
+      <h2 class="script-heading reveal" id="letter-heading">You're invited</h2>
+
+      <div class="letter-scroll" id="letter-scroll">
+        <div class="letter-envelope" id="letter-envelope">
+          <div class="letter-back" aria-hidden="true"></div>
+
+          <article class="invitation-letter">
+            <h3>Dear Friends and Family,</h3>
+            <p>As we prepare to take our <em>seven sacred steps,</em> we're filled with gratitude for the love and blessings that have brought us together.</p>
+            <div class="letter-divider" aria-hidden="true">✧</div>
+            <p>With the blessings of our families, we begin a beautiful new chapter. We would be honoured to have you by our side as we begin our forever together.</p>
+            <p class="letter-signoff">With love,</p>
+
+            <div class="letter-families" aria-label="The groom, bride, and their parents">
+              <div class="couple-family">
+                <p class="family-name">Vishal</p>
+                <p class="family-parents">Son of Mr Chaman Agarwal<br>and Mrs Kavita Agarwal</p>
+              </div>
+              <span class="family-ampersand" aria-hidden="true">&amp;</span>
+              <div class="couple-family">
+                <p class="family-name">Shruti</p>
+                <p class="family-parents">Daughter of Mr Vijay Pareek<br>and Mrs Sudha Pareek</p>
+              </div>
+            </div>
+          </article>
+
+          <div class="letter-front" aria-hidden="true">
+            <span>V <i>&amp;</i> S</span>
+            <small>TOGETHER, WITH YOU</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────
+         SECTION 5: WEDDING CELEBRATIONS
+         ───────────────────────────────────────────── -->
+    <section class="celebration-section section" id="celebration" aria-labelledby="celebration-heading">
+      <header class="celebration-header">
+        <p class="eyebrow reveal">VISHAL &amp; SHRUTI · WITH YOU, IN CELEBRATION</p>
+        <h2 class="script-heading reveal" id="celebration-heading">Two days, a lifetime of memories</h2>
+        <p class="section-intro reveal">From the first touch of haldi to a joyful new beginning,<br>join us for every beautiful moment.</p>
+
+        <nav class="day-navigation" aria-label="Jump to celebration day">
+          <a href="#day-one">25 NOVEMBER <span>Day one</span></a>
+          <a href="#day-two">26 NOVEMBER <span>Day two</span></a>
+        </nav>
+      </header>
+
+      <ol class="event-chapters" aria-label="Wedding celebrations in order">
+
+        <!-- Day One -->
+        <li class="event-screen event-day-one" id="day-one" aria-labelledby="day-one-heading">
+          <img
+            class="marigold-canopy"
+            src="assets/decorations/marigold-canopy.webp"
+            alt=""
+            width="1536" height="1024"
+            loading="lazy"
+            decoding="async"
+          >
+          <div class="event-copy">
+            <p class="event-eyebrow">DAY ONE · THE FESTIVITIES</p>
+            <h3 id="day-one-heading">Painted in joy</h3>
+            <p class="event-mood">A little haldi. A little music. A whole lot of love.</p>
+
+            <img
+              class="event-illustration haldi-illustration"
+              src="assets/decorations/haldi-sangeet.webp"
+              alt=""
+              width="1536" height="1024"
+              loading="lazy"
+              decoding="async"
+            >
+
+            <time class="event-date" datetime="2026-11-25">
+              <span class="event-day-number">25</span>
+              <span class="event-date-detail">
+                <span>November 2026</span>
+                <small>Wednesday</small>
+              </span>
+            </time>
+
+            <ol class="function-schedule" aria-label="25 November functions, Indian Standard Time">
+              <li>
+                <time datetime="2026-11-25T11:00:00+05:30">11:00 <span>AM</span></time>
+                <div>
+                  <h4>Haldi</h4>
+                  <p>A golden beginning</p>
+                </div>
+              </li>
+              <li>
+                <time datetime="2026-11-25T17:00:00+05:30">5:00 <span>PM</span></time>
+                <div>
+                  <h4>Tilak</h4>
+                  <p>Blessings &amp; togetherness</p>
+                </div>
+              </li>
+              <li>
+                <time datetime="2026-11-25T18:00:00+05:30">6:00 <span>PM</span></time>
+                <div>
+                  <h4>Sangeet</h4>
+                  <p>An evening of music &amp; joy</p>
+                </div>
+              </li>
+            </ol>
+
+            <p class="event-venue-note">
+              <span>THE VENUE</span>
+              The Heritage Resorts
+              <small>All functions · Indian Standard Time</small>
+            </p>
+          </div>
+          <p class="event-chapter">I &nbsp; / &nbsp; COLOUR, BLESSINGS &amp; MUSIC</p>
+        </li>
+
+        <!-- Day Two -->
+        <li class="event-screen event-day-two" id="day-two" aria-labelledby="day-two-heading">
+          <div class="event-copy">
+            <p class="event-eyebrow">DAY TWO · THE WEDDING</p>
+            <h3 id="day-two-heading">Written in forever</h3>
+            <p class="event-mood">Vishal &amp; Shruti · A beautiful new beginning</p>
+
+            <img
+              class="event-illustration pavilion-illustration"
+              src="assets/decorations/wedding-pavilion.webp"
+              alt=""
+              width="1536" height="1024"
+              loading="lazy"
+              decoding="async"
+            >
+
+            <time class="event-date" datetime="2026-11-26">
+              <span class="event-day-number">26</span>
+              <span class="event-date-detail">
+                <span>November 2026</span>
+                <small>Thursday</small>
+              </span>
+            </time>
+
+            <ol class="function-schedule" aria-label="26 November functions, Indian Standard Time">
+              <li>
+                <time datetime="2026-11-26T11:00:00+05:30">11:00 <span>AM</span></time>
+                <div>
+                  <h4>Bhaat</h4>
+                  <p>Family, love &amp; tradition</p>
+                </div>
+              </li>
+              <li>
+                <time datetime="2026-11-26T18:00:00+05:30">6:00 <span>PM</span></time>
+                <div>
+                  <h4>Baraat</h4>
+                  <p>A joyful arrival</p>
+                </div>
+              </li>
+              <li>
+                <time datetime="2026-11-26T20:00:00+05:30">8:00 <span>PM</span></time>
+                <div>
+                  <h4>Varmala / Reception</h4>
+                  <p>A beautiful new beginning</p>
+                </div>
+              </li>
+            </ol>
+
+            <p class="event-venue-note">
+              <span>THE VENUE</span>
+              The Heritage Resorts
+              <small>All functions · Indian Standard Time</small>
+            </p>
+          </div>
+          <p class="event-chapter">II &nbsp; / &nbsp; TWO HEARTS, ONE FOREVER</p>
+        </li>
+
+      </ol>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────
+         SECTION 6: VENUE
+         ───────────────────────────────────────────── -->
+    <section class="venue-section section" id="venue" aria-labelledby="venue-heading">
+      <div class="venue-art" aria-hidden="true"></div>
+      <p class="eyebrow reveal">ONE VENUE · EVERY BEAUTIFUL MOMENT</p>
+      <h2 class="script-heading reveal" id="venue-heading">Meet us here</h2>
+
+      <div class="venue-arch reveal">
+        <span aria-hidden="true">✧</span>
+        <h3>The Heritage Resorts</h3>
+        <p>All wedding functions</p>
+        <div class="venue-rule" aria-hidden="true"></div>
+        <p>25 &amp; 26 November 2026</p>
+        <p class="venue-time">All times in Indian Standard Time</p>
+        <a
+          class="outline-button"
+          href="https://maps.app.goo.gl/bz9tVzKgxBnj9hNn7?g_st=iw"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open The Heritage Resorts in Google Maps (opens new tab)"
+        >
+          OPEN IN GOOGLE MAPS
+        </a>
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────
+         SECTION 7: PHOTO GALLERY
+         ───────────────────────────────────────────── -->
+    <section class="gallery-section" id="gallery" aria-labelledby="gallery-heading">
+      <header class="gallery-header">
+        <p class="eyebrow">VISHAL &amp; SHRUTI · LITTLE MOMENTS, BIG LOVE</p>
+        <h2 class="script-heading" id="gallery-heading">A little glimpse of us</h2>
+        <p>Some smiles, some laughter,<br>and a thousand reasons to choose each other.</p>
+      </header>
+
+      <div role="region" aria-label="Our photographs">
+        <ol class="gallery-track" aria-label="Photographs of Vishal and Shruti">
+          <li class="gallery-slide" id="gallery-photo-1">
+            <figure>
+              <button
+                class="gallery-photo"
+                type="button"
+                data-full="assets/images/celebration-card.webp"
+                aria-label="Open photo: A beautiful beginning"
+              >
+                <img
+                  src="assets/images/celebration-card.webp"
+                  alt="Vishal and Shruti seated together beneath colourful flowers and umbrellas"
+                  width="960" height="1280"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </button>
+              <figcaption>
+                <p>A beautiful beginning</p>
+              </figcaption>
+            </figure>
+          </li>
+          <!-- Add more <li class="gallery-slide"> entries here -->
+        </ol>
+      </div>
+
+      <p class="gallery-hint">Tap the photo to see it in full</p>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────
+         SECTION 8: CLOSING
+         ───────────────────────────────────────────── -->
+    <section class="closing-section section" aria-labelledby="closing-heading">
+      <h2 class="script-heading reveal" id="closing-heading">A little space in your hearts</h2>
+
+      <p class="reveal">As we step into this beautiful new chapter, having you be a part of our journey would make our happiness even more special.</p>
+      <p class="reveal">We look forward to celebrating these special days surrounded by your love, laughter, and blessings. Until then, save us a little space in your hearts as we get ready to begin our forever together.</p>
+
+      <p class="closing-love reveal">
+        With love,
+        <span>Vishal &amp; Shruti</span>
+      </p>
+
+      <div class="footer-monogram reveal" aria-hidden="true">V<span>&amp;</span>S</div>
+
+      <div class="closing-tagline reveal">
+        <p>Our Forever Starts</p>
+        <p class="closing-hashtag">#VishalAndShruti</p>
+      </div>
+
+      <!-- Optional: WhatsApp share -->
+      <button
+        id="whatsapp-share"
+        class="outline-button reveal"
+        type="button"
+        aria-label="Share this invitation on WhatsApp"
+        style="margin-top: 32px;"
+      >
+        Share via WhatsApp
+      </button>
+
+      <p class="closing-floral" aria-hidden="true">✦ ✧ ✦</p>
+    </section>
+
+  </main><!-- /#invitation -->
+
+
+  <!-- ── Gallery Lightbox Dialog ─────────────────────────── -->
+  <dialog
+    class="gallery-lightbox"
+    id="gallery-lightbox"
+    aria-label="Vishal and Shruti's photo viewer"
+  >
+    <div class="lightbox-toolbar">
+      <div class="lightbox-nav">
+        <button class="lightbox-prev" type="button" aria-label="Previous photo">←</button>
+        <button class="lightbox-next" type="button" aria-label="Next photo">→</button>
+      </div>
+      <p id="lightbox-position" aria-live="polite"></p>
+      <button type="button" id="lightbox-close" aria-label="Close photo viewer">✕</button>
+    </div>
+    <div class="lightbox-stage">
+      <img id="lightbox-image" alt="" draggable="false">
+    </div>
+    <p id="lightbox-caption"></p>
+  </dialog>
+
+  <!-- Background Music -->
+  <audio id="background-music" src="assets/audio/wedding-music.mp3" preload="auto" loop></audio>
+
+  <!-- Music Toggle (hidden until envelope opens) -->
+  <button
+    id="music-toggle"
+    class="music-toggle"
+    aria-label="Play background music"
+    aria-pressed="false"
+    hidden
+  >
+    <span class="music-bars" aria-hidden="true">
+      <i></i><i></i><i></i><i></i>
+    </span>
+    <span class="music-label">MUSIC OFF</span>
+  </button>
+
+  <!-- Petal burst container -->
+  <div id="petals" class="petals" aria-hidden="true"></div>
+
+  <!-- No-JS fallback -->
+  <noscript>
+    <div class="noscript-message">
+      Vishal &amp; Shruti invite you to The Heritage Resorts.
+      25 November 2026: Haldi at 11 am, Tilak at 5 pm, Sangeet at 6 pm.
+      26 November 2026: Bhaat at 11 am, Baraat at 6 pm, Varmala / Reception at 8 pm.
+      All times IST. Vishal, son of Chaman Agarwal and Kavita Agarwal;
+      Shruti, daughter of Vijay Pareek and Sudha Pareek.
+      Please enable JavaScript to open the interactive invitation.
+    </div>
+  </noscript>
+
+  <!-- Scripts: config → utils → opening → music → animations → countdown → gallery → main -->
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/opening.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

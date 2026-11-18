@@ -1,0 +1,97 @@
+/* ═══════════════════════════════════════════════════════════
+   animations.css — Scroll Reveals · Petals · Music Toggle
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Scroll Reveal ────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  translate: 0 20px;
+  transition: opacity 1.1s ease, translate 1.1s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Stagger the calendar link's reveal after scratch completion */
+#calendar-link.reveal.visible { transition-delay: 0.8s; }
+
+/* ── Celebration Petal Burst ──────────────────────────────── */
+.petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 40;
+}
+.petal {
+  position: absolute;
+  top: -30px;
+  width: 9px;
+  height: 15px;
+  border-radius: 80% 0 80% 10%;
+  background: #d1a2ad;
+  opacity: 0;
+  animation: petal-fall 5s ease-in forwards;
+}
+@keyframes petal-fall {
+  5%  { opacity: 0.7; }
+  95% { opacity: 0.5; }
+  100%{
+    transform: translate3d(var(--drift), 105svh, 0) rotate(var(--spin));
+    opacity: 0;
+  }
+}
+
+/* ── Music Toggle (floating) ──────────────────────────────── */
+.music-toggle {
+  position: fixed;
+  bottom: max(22px, env(safe-area-inset-bottom));
+  right: max(22px, calc((100vw - var(--max-width)) / 2 + 20px));
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 13px;
+  border: 1px solid rgba(196, 164, 108, 0.33);
+  border-radius: 28px;
+  background: var(--burgundy);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 15px rgb(var(--burgundy-rgb) / 15%);
+  color: #fff0db;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.music-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgb(var(--burgundy-rgb) / 25%);
+}
+.music-label {
+  font: 7px var(--serif);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+/* ── Music Bars Animation ─────────────────────────────────── */
+.music-bars {
+  display: flex;
+  align-items: center;
+  height: 17px;
+  gap: 3px;
+}
+.music-bars i {
+  display: block;
+  width: 2px;
+  height: 5px;
+  border-radius: 2px;
+  background: #e3c18b;
+}
+.music-toggle[aria-pressed="true"] .music-bars i {
+  animation: music-bar 1.3s ease-in-out infinite;
+}
+.music-bars i:nth-child(2) { height: 13px; animation-delay: -0.7s  !important; }
+.music-bars i:nth-child(3) { height: 9px;  animation-delay: -0.3s  !important; }
+.music-bars i:nth-child(4) {               animation-delay: -1s    !important; }
+@keyframes music-bar {
+  0%, 100% { height: 15px; }
+  50%       { height: 4px;  }
+}

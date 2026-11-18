@@ -1,0 +1,198 @@
+/* ═══════════════════════════════════════════════════════════
+   responsive.css — Mobile · Tablet · Desktop Breakpoints
+   ═══════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════
+   DESKTOP WIDE (≥ 1000px)
+   ═══════════════════════════════════ */
+@media (min-width: 1000px) {
+  .opening {
+    box-shadow: 0 0 80px rgb(var(--burgundy-rgb) / 10%);
+  }
+  #home .hero-copy { top: 18%; }
+  #home h1 { font-size: 46px; }
+}
+
+/* ═══════════════════════════════════
+   MOBILE (≤ 760px)
+   ═══════════════════════════════════ */
+@media (max-width: 760px) {
+  /* Layout */
+  .desktop-caption { display: none; }
+  .opening, main   { max-width: 100%; }
+  html[data-invitation-state="open"] { background: var(--paper); }
+  body, body.invitation-open         { background: var(--paper); }
+  body.invitation-closed             { background: var(--burgundy); }
+
+  /* Music button */
+  .music-toggle { right: 17px; }
+
+  /* Hero */
+  #home { min-height: 640px; max-height: none; }
+  #home .hero-copy { top: 23%; left: 10%; width: 80%; }
+  #home .hero-copy > .eyebrow { font-size: 9px; letter-spacing: 1.2px; }
+  #home .hero-prelude,
+  #home .hero-forever  { font-size: 20px; margin: 0; }
+  #home .hero-subtitle { font-size: 18px; margin-top: 25px; }
+  #home h1 {
+    font-size: clamp(42px, 13vw, 82px);
+    gap: 10px;
+    letter-spacing: 0;
+  }
+
+  /* Sections */
+  .section {
+    padding-left:  27px;
+    padding-right: 27px;
+  }
+  .script-heading  { font-size: 46px; }
+  .section-intro   { font-size: 21px; }
+
+  /* Scratch */
+  .scratch-date { gap: 6px; max-width: 380px; }
+  .scratch-cell { height: 104px; }
+
+  /* Letter */
+  .letter-section  { padding-left: 20px; padding-right: 20px; }
+  .letter-envelope { padding-left: 13px; padding-right: 13px; }
+  .invitation-letter       { padding: 32px 24px 28px; }
+  .invitation-letter h3    { font-size: 27px; }
+  .invitation-letter > p:not(.letter-blessing) { font-size: 19px; }
+
+  /* Events */
+  .event-screen    { padding: 100px 27px 35px; }
+  .event-day-two   { padding-top: 50px; }
+  .event-eyebrow   { font-size: 9px; letter-spacing: 2.5px; }
+  .event-copy h3   { font-size: 51px; }
+  .event-mood      { font-size: 18px; max-width: 280px; }
+  .event-illustration     { height: 175px; margin-top: 4px; }
+  .pavilion-illustration  { height: 210px; margin-top: 13px; }
+  .event-day-number       { font-size: 74px; }
+  .event-date-detail      { font-size: 24px; }
+  .function-schedule li   { column-gap: 12px; padding: 22px 0; }
+  .function-schedule li > div { padding-left: 25px; }
+  .function-schedule h4   { font-size: 27px; }
+  .function-schedule time { font-size: 25px; }
+  .function-schedule p    { font-size: 16px; }
+
+  /* Gallery */
+  .gallery-track { padding-inline: 8%; }
+  .gallery-slide figure { padding: 7px 7px 0; }
+  .gallery-slide figcaption { min-height: 68px; padding: 14px 6px; gap: 10px; }
+  .gallery-slide figcaption p { font-size: 21px; }
+  .gallery-header > p:last-child { font-size: 20px; }
+  .lightbox-stage  { padding: 0 8px; }
+  #lightbox-caption { font-size: 22px; padding-bottom: max(28px, env(safe-area-inset-bottom)); }
+
+  /* Closing */
+  .closing-section > p:not(.eyebrow):not(.closing-love) { font-size: 20px; }
+  .closing-section h2 { font-size: 43px; }
+}
+
+/* ═══════════════════════════════════
+   MOBILE NARROW (≤ 480px)
+   ═══════════════════════════════════ */
+@media (max-width: 480px) {
+  .event-screen    { padding: 100px 27px 35px; }
+  .day-navigation  { gap: 20px; }
+  .event-venue-note { font-size: 25px; }
+  .gallery-track   { padding-inline: 8%; }
+}
+
+/* ═══════════════════════════════════
+   MOBILE EXTRA NARROW (≤ 370px)
+   ═══════════════════════════════════ */
+@media (max-width: 370px) {
+  /* Hero */
+  #home .hero-copy      { top: 22%; left: 8%; width: 84%; }
+  #home .hero-copy > .eyebrow { font-size: 8px; }
+  #home .hero-prelude,
+  #home .hero-forever   { font-size: 18px; }
+  #home .hero-date      { font-size: 8px; letter-spacing: 1.4px; }
+  #home h1              { font-size: 40px; }
+
+  /* Sections */
+  .section             { padding-left: 20px; padding-right: 20px; }
+  .script-heading      { font-size: 41px; }
+
+  /* Letter */
+  .letter-section      { padding-left: 13px; padding-right: 13px; }
+  .invitation-letter   { padding: 28px 20px; }
+  .invitation-letter > p:not(.letter-blessing) { font-size: 18px; }
+  .invitation-letter h3 { font-size: 24px; }
+
+  /* Family */
+  .family-name         { font-size: 38px; }
+  .family-parents      { font-size: 17px; }
+  .closing-love > span { font-size: 38px; }
+
+  /* Events */
+  .event-screen        { padding-left: 22px; padding-right: 22px; }
+  .event-copy h3       { font-size: 46px; }
+  .function-schedule h4 { font-size: 25px; }
+  .function-schedule time { font-size: 23px; }
+  .function-schedule li { column-gap: 10px; }
+
+  /* Music */
+  .music-label { display: none; }
+}
+
+/* ═══════════════════════════════════
+   SHORT SCREENS — landscape phones
+   ═══════════════════════════════════ */
+@media (max-height: 720px) and (min-width: 380px) {
+  #home .hero-copy      { top: 21%; }
+  #home .hero-copy > .eyebrow { margin-bottom: 12px; }
+  #home h1              { margin-top: 18px; }
+  #home .hero-subtitle  { margin-top: 20px; }
+}
+
+/* ═══════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration:        0.01ms !important;
+    animation-delay:           0ms    !important;
+    animation-iteration-count: 1      !important;
+    transition-duration:       0.01ms !important;
+  }
+
+  .reveal { opacity: 1; translate: 0 0; }
+  .hero-florals { display: none; }
+
+  /* Opening skips immediately */
+  .opening { transition-duration: 0.1s; }
+  .envelope-fold, .envelope-upper { will-change: auto; }
+
+  /* Hero art static */
+  .invitation-open .hero-art { animation: none; transform: none; }
+
+  /* Hero text appears immediately */
+  .invitation-open #home .hero-copy > *,
+  .invitation-open #home h1 > *,
+  .invitation-open #home .scroll-invitation {
+    animation: none;
+    opacity: 1;
+    translate: none;
+    filter: none;
+  }
+
+  /* Letter extraction disabled */
+  .letter-scroll { height: auto; }
+  .letter-envelope {
+    position: relative;
+    top: auto;
+    height: auto;
+    padding: 35px 14px 240px;
+    overflow: visible;
+    clip-path: none;
+  }
+  .invitation-letter {
+    position: relative;
+    top: auto; left: auto; right: auto;
+    transform: none;
+  }
+}

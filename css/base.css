@@ -1,0 +1,206 @@
+/* ═══════════════════════════════════════════════════════════
+   base.css — Reset · Variables · Typography · Common UI
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Google Fonts ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap');
+
+/* ── Custom Properties ────────────────────────────────────── */
+:root {
+  color-scheme: light;
+
+  /* Palette */
+  --burgundy:       #6c2e31;
+  --burgundy-rgb:   108 46 49;
+  --burgundy-dark:  #4e181a;
+  --muted:          #775052;
+  --rose:           #9a5d58;
+  --gold:           #a47b41;
+  --paper:          #fcf5ec;
+  --letter-paper:   #fff9ef;
+  --ink:            var(--burgundy);
+
+  /* Typography */
+  --serif:  'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --script: 'Great Vibes', cursive;
+  --names:  var(--serif);
+
+  /* Spacing */
+  --section-pad-v: 85px;
+  --section-pad-h: 45px;
+  --max-width:      680px;
+}
+
+/* ── Box Sizing ───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ── HTML & Body ──────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+  background: radial-gradient(ellipse at top, #6e293f, #320b1b);
+}
+html[data-invitation-state="open"] {
+  background: radial-gradient(ellipse at top, #6e293f, #320b1b);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: radial-gradient(ellipse at top, #6e293f, #320b1b);
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body.invitation-closed {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+body.invitation-open {
+  background: radial-gradient(ellipse at top, #6e293f, #320b1b);
+}
+
+/* ── Main Container ───────────────────────────────────────── */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background: var(--paper);
+  overflow: clip;
+  box-shadow: 0 0 90px rgb(var(--burgundy-rgb) / 7%);
+}
+
+/* ── Typography Reset ─────────────────────────────────────── */
+p, h1, h2, h3, h4 { margin: 0; }
+
+/* ── Links & Buttons ──────────────────────────────────────── */
+a   { color: inherit; -webkit-tap-highlight-color: transparent; }
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+button[hidden], [hidden] { display: none !important; }
+
+/* Focus rings — keyboard only */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--burgundy);
+  outline-offset: 7px;
+}
+
+/* ── Selection ────────────────────────────────────────────── */
+::selection {
+  background: var(--burgundy);
+  color: var(--paper);
+}
+
+/* ── Common Typography Classes ────────────────────────────── */
+.eyebrow {
+  font: 9px / 1.8 var(--serif);
+  font-weight: 400;
+  letter-spacing: 2.8px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.script-heading {
+  font: 400 53px / 1.2 var(--script);
+  color: var(--burgundy);
+  margin: 15px 0 14px;
+}
+
+.section-intro {
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+/* ── Common Sections ──────────────────────────────────────── */
+.section {
+  text-align: center;
+  position: relative;
+  padding: var(--section-pad-v) var(--section-pad-h);
+}
+
+/* ── Outline Button ───────────────────────────────────────── */
+.outline-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 22px auto 0;
+  text-decoration: none;
+  font: 9px / 1.5 var(--serif);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid rgb(var(--burgundy-rgb) / 40%);
+  padding: 17px 25px;
+  min-height: 48px;
+  color: var(--burgundy);
+  transition: background 0.3s, color 0.3s;
+}
+.outline-button:hover,
+.outline-button:focus-visible {
+  background: var(--burgundy);
+  color: var(--paper);
+  outline: none;
+}
+.outline-button span {
+  font-size: 18px;
+  line-height: 12px;
+}
+
+/* ── Text Button ──────────────────────────────────────────── */
+.text-button {
+  position: relative;
+  background: none;
+  border: 0;
+  color: var(--muted);
+  font: italic 16px / 1.5 var(--serif);
+  padding: 10px 8px;
+  cursor: pointer;
+}
+.text-button:hover { color: var(--burgundy); }
+
+/* ── Desktop Side Caption ─────────────────────────────────── */
+.desktop-caption {
+  position: fixed;
+  left: calc((100vw - var(--max-width)) / 4);
+  top: 50%;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  writing-mode: vertical-rl;
+  transform: translate(-50%, -50%);
+  font: 9px / 1.5 var(--serif);
+  letter-spacing: 3px;
+  color: #986b76;
+  pointer-events: none;
+  z-index: 10;
+}
+.desktop-caption i   { font: 20px var(--serif); letter-spacing: 1px; }
+.desktop-caption::after {
+  content: '';
+  height: 70px;
+  width: 1px;
+  background: rgb(var(--burgundy-rgb) / 25%);
+}
+
+/* ── Noscript fallback ────────────────────────────────────── */
+.noscript-message {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--paper);
+  padding: 20vh 10%;
+  font-size: 24px;
+  text-align: center;
+  color: var(--burgundy);
+}
