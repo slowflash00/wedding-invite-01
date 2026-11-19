@@ -106,7 +106,7 @@ const weddingConfig = {
     tagline:    'All wedding functions',
     dates:      '19 & 20 December 2026',
     timeNote:   'All times in Indian Standard Time',
-    googleMapsUrl: 'https://maps.app.goo.gl/g1um2EQmMVTj4yZx5',
+    googleMapsUrl: 'https://maps.google.com/?cid=1623322179639550080',
   },
 
   /* ── GALLERY ─────────────────────────────────────────────────────────── */
