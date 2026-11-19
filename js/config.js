@@ -10,31 +10,31 @@ const weddingConfig = {
 
   /* ── COUPLE ─────────────────────────────────────────────────────────── */
   couple: {
-    groom:     'Vishal',
-    bride:     'Shruti',
-    monogram:  'V & S',
-    hashtag:   '#VishalAndShruti',
+    bride:     'Ritika',
+    groom:     'Kartavya',
+    monogram:  'R & K',
+    hashtag:   '#RitikaAndKartavya',
     tagline:   'Two souls, seven promises, a lifetime of love.',
   },
 
   /* ── FAMILY ──────────────────────────────────────────────────────────── */
   family: {
-    groomParents: ['Mr Chaman Agarwal', 'Mrs Kavita Agarwal'],
-    brideParents:  ['Mr Vijay Pareek',   'Mrs Sudha Pareek'],
+    brideParents:  ['Mr Rajesh Mathur', 'Mrs Pramila Mathur'],
+    groomParents:  ['Mr Sunil Kumar Loonia', 'Lt. Kanta Devi Loonia'],
   },
 
   /* ── WEDDING DATES ───────────────────────────────────────────────────── */
   wedding: {
     // ISO 8601 strings — always include the IST (+05:30) offset
-    startDate:          '2026-11-25T11:00:00+05:30',
-    endDate:            '2026-11-26T22:00:00+05:30',
-    // Countdown target — the main ceremony
-    countdownTarget:    '2026-11-26T20:00:00+05:30',
-    countdownLabel:     'Counting down to Varmala & Reception',
+    startDate:          '2026-12-19T11:00:00+05:30',
+    endDate:            '2026-12-20T23:59:00+05:30',
+    // Countdown target — the main ceremony (Anant Saath / Phere at midnight)
+    countdownTarget:    '2026-12-20T00:00:00+05:30',
+    countdownLabel:     'Countdown to always and forever',
     postWeddingMessage: 'Our forever has begun ♡',
     timezone:           'Asia/Kolkata',
-    displayDates:       '25 & 26 November 2026',
-    displayLocation:    'The Heritage Resorts',
+    displayDates:       '19 & 20 December 2026',
+    displayLocation:    'Riddhi Resorts, Mansarovar Extension',
   },
 
   /* ── INVITATION TEXT ─────────────────────────────────────────────────── */
@@ -55,24 +55,24 @@ const weddingConfig = {
   events: [
     {
       day:        1,
-      chapter:    'I / COLOUR, BLESSINGS & MUSIC',
+      chapter:    'I / KESARI RANG & MUSIC',
       eyebrow:    'DAY ONE · THE FESTIVITIES',
       heading:    'Painted in joy',
       mood:       'A little haldi. A little music. A whole lot of love.',
-      date:       '2026-11-25',
-      displayDate:'25',
-      month:      'November 2026',
-      weekday:    'Wednesday',
-      theme:      'day-one',           // CSS modifier class
+      date:       '2026-12-19',
+      displayDate:'19',
+      month:      'December 2026',
+      weekday:    'Saturday',
+      theme:      'day-one',
       canopyImage:'assets/decorations/marigold-canopy.webp',
       illustration:'assets/decorations/haldi-sangeet.webp',
       illustrationClass: 'haldi-illustration',
-      venueNote:  'The Heritage Resorts',
+      venueNote:  'Riddhi Resorts, Patrakar Colony, Mansarovar Extension',
       venueSmall: 'All functions · Indian Standard Time',
       functions: [
-        { time: '11:00 AM', datetime: '2026-11-25T11:00:00+05:30', name: 'Haldi',   desc: 'A golden beginning' },
-        { time:  '5:00 PM', datetime: '2026-11-25T17:00:00+05:30', name: 'Tilak',   desc: 'Blessings & togetherness' },
-        { time:  '6:00 PM', datetime: '2026-11-25T18:00:00+05:30', name: 'Sangeet', desc: 'An evening of music & joy' },
+        { time: '11:00 AM', datetime: '2026-12-19T11:00:00+05:30', name: 'Haldi — Kesari Rang',  desc: 'A golden beginning' },
+        { time:  '7:00 PM', datetime: '2026-12-19T19:00:00+05:30', name: 'Ring Ceremony',         desc: 'Blessings & togetherness' },
+        { time:  '7:30 PM', datetime: '2026-12-19T19:30:00+05:30', name: 'Shaam Shaandaar',       desc: 'Sangeet · An evening of music & joy' },
       ],
     },
     {
@@ -80,32 +80,33 @@ const weddingConfig = {
       chapter:    'II / TWO HEARTS, ONE FOREVER',
       eyebrow:    'DAY TWO · THE WEDDING',
       heading:    'Written in forever',
-      mood:       'Vishal & Shruti · A beautiful new beginning',
-      date:       '2026-11-26',
-      displayDate:'26',
-      month:      'November 2026',
-      weekday:    'Thursday',
+      mood:       'Ritika & Kartavya · A beautiful new beginning',
+      date:       '2026-12-20',
+      displayDate:'20',
+      month:      'December 2026',
+      weekday:    'Sunday',
       theme:      'day-two',
       canopyImage: null,
       illustration:'assets/decorations/wedding-pavilion.webp',
       illustrationClass: 'pavilion-illustration',
-      venueNote:  'The Heritage Resorts',
+      venueNote:  'Riddhi Resorts, Patrakar Colony, Mansarovar Extension',
       venueSmall: 'All functions · Indian Standard Time',
       functions: [
-        { time: '11:00 AM', datetime: '2026-11-26T11:00:00+05:30', name: 'Bhaat',              desc: 'Family, love & tradition' },
-        { time:  '6:00 PM', datetime: '2026-11-26T18:00:00+05:30', name: 'Baraat',             desc: 'A joyful arrival' },
-        { time:  '8:00 PM', datetime: '2026-11-26T20:00:00+05:30', name: 'Varmala / Reception',desc: 'A beautiful new beginning' },
+        { time: '11:00 AM', datetime: '2026-12-20T11:00:00+05:30', name: 'Mamera ri Mithas',   desc: 'Followed by lunch · Family, love & tradition' },
+        { time:        '',  datetime: '2026-12-20T18:00:00+05:30', name: 'Baarat — Shubh Aagman', desc: 'A joyful arrival' },
+        { time: 'Midnight', datetime: '2026-12-20T23:59:00+05:30', name: 'Anant Saath',          desc: 'Phere · Our forever begins' },
       ],
     },
   ],
 
   /* ── VENUE ───────────────────────────────────────────────────────────── */
   venue: {
-    name:       'The Heritage Resorts',
+    name:       'Riddhi Resorts',
+    address:    'Patrakar Colony, Mansarovar Extension',
     tagline:    'All wedding functions',
-    dates:      '25 & 26 November 2026',
+    dates:      '19 & 20 December 2026',
     timeNote:   'All times in Indian Standard Time',
-    googleMapsUrl: 'https://maps.app.goo.gl/bz9tVzKgxBnj9hNn7?g_st=iw',
+    googleMapsUrl: 'https://maps.google.com/?q=Riddhi+Resorts+Patrakar+Colony+Mansarovar+Extension+Jaipur',
   },
 
   /* ── GALLERY ─────────────────────────────────────────────────────────── */
@@ -113,7 +114,7 @@ const weddingConfig = {
     {
       thumb:   'assets/images/celebration-card.webp',
       full:    'assets/images/celebration-card.webp',
-      alt:     'Vishal and Shruti seated together beneath colourful flowers and umbrellas',
+      alt:     'Ritika and Kartavya — a beautiful beginning',
       caption: 'A beautiful beginning',
     },
     // Add more photos here — each object follows the same shape
@@ -121,8 +122,8 @@ const weddingConfig = {
 
   /* ── SCRATCH DATE ────────────────────────────────────────────────────── */
   scratchDate: {
-    day:   '25–26',
-    month: 'November',
+    day:   '19–20',
+    month: 'December',
     year:  '2026',
     dayLabel:   'DAYS',
     monthLabel: 'MONTH',
@@ -153,11 +154,11 @@ const weddingConfig = {
 
   /* ── SEO / META ──────────────────────────────────────────────────────── */
   seo: {
-    siteUrl:      'https://vishalandshruti.pages.dev/',
-    title:        'Vishal & Shruti — A Little Invitation to Forever',
-    description:  'Celebrate Vishal & Shruti: two days of wedding celebrations on 25 & 26 November 2026 at The Heritage Resorts.',
-    ogDescription:'Join us for two days of wedding celebrations on 25 & 26 November 2026 at The Heritage Resorts.',
-    ogImageAlt:   "Vishal and Shruti's wedding invitation: 25 and 26 November 2026 at The Heritage Resorts, framed by a floral palace arch.",
+    siteUrl:      'https://your-deployment-url.pages.dev/',
+    title:        'Ritika & Kartavya — A Little Invitation to Forever',
+    description:  'Celebrate Ritika & Kartavya: two days of wedding celebrations on 19 & 20 December 2026 at Riddhi Resorts, Mansarovar Extension.',
+    ogDescription:'Join us for two days of wedding celebrations on 19 & 20 December 2026 at Riddhi Resorts, Mansarovar Extension.',
+    ogImageAlt:   "Ritika and Kartavya's wedding invitation: 19 and 20 December 2026 at Riddhi Resorts, Mansarovar Extension, framed by a floral palace arch.",
   },
 
   /* ── RSVP (WhatsApp-based) ───────────────────────────────────────────── */
@@ -165,7 +166,7 @@ const weddingConfig = {
     enabled: false,              // set true once phone is confirmed
     whatsappNumber: '',          // e.g. '919876543210'
     messageTemplate: (groom, bride, date) =>
-      `Hi! I confirm my attendance at ${groom} & ${bride}'s wedding on ${date}. Please count me in!`,
+      `Hi! I confirm my attendance at ${bride} & ${groom}'s wedding on ${date}. Please count me in!`,
   },
 
   /* ── OPTIONAL FEATURES ───────────────────────────────────────────────── */
