@@ -112,8 +112,8 @@ const weddingConfig = {
   /* ── GALLERY ─────────────────────────────────────────────────────────── */
   gallery: [
     {
-      thumb:   'assets/images/celebration-card.webp',
-      full:    'assets/images/celebration-card.webp',
+      thumb:   'assets/images/couple-image.webp',
+      full:    'assets/images/couple-image.webp',
       alt:     'Ritika and Kartavya — a beautiful beginning',
       caption: 'A beautiful beginning',
     },
