@@ -161,7 +161,7 @@ const weddingConfig = {
 
   /* ── SEO / META ──────────────────────────────────────────────────────── */
   seo: {
-    siteUrl:      'https://your-deployment-url.pages.dev/',
+    siteUrl:      'https://ritikawedskartavya.shubhinvite.in/',
     title:        'Ritika & Kartavya — A Little Invitation to Forever',
     description:  'Celebrate Ritika & Kartavya: two days of wedding celebrations on 19 & 20 December 2026 at Ridhi Resorts, Mansarovar Extension.',
     ogDescription:'Join us for two days of wedding celebrations on 19 & 20 December 2026 at Ridhi Resorts, Mansarovar Extension.',
