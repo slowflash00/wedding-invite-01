@@ -8,6 +8,13 @@
 
 const weddingConfig = {
 
+  /* ── PREVIEW PROTECTION ──────────────────────────────────────────────── */
+  preview: {
+    enabled: true,
+    expiresAt: '2026-12-05T23:59:59+05:30',
+    contactWhatsApp: '919876543210',
+  },
+
   /* ── COUPLE ─────────────────────────────────────────────────────────── */
   couple: {
     bride:     'Ritika',

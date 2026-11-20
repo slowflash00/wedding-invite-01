@@ -193,6 +193,32 @@ Enable Pages for the repository and select the `main` branch root.
 
 ---
 
+## Build & Preview Protection System
+
+This project includes a built-in build system (`build.js`) that allows you to show prospective clients a protected, watermarked sample without compromising the final paid design.
+
+### Commands
+
+| Command | Output Folder | Description |
+|---|---|---|
+| `node build.js preview` | `dist-preview/` | Generates a watermarked sample with degraded images, preview audio, closed shadow DOM overlay, and tamper resistance |
+| `node build.js final` | `dist/` | Generates a clean, pristine paid client release with full-resolution assets and zero watermarks |
+
+### Preview Mode Features (`dist-preview/`)
+- **Closed Shadow DOM Overlay:** Renders a diagonal repeating watermark pattern ("SAMPLE - ShubhInvite") and centered badge. With `pointer-events: none`, the guest experience remains smooth, interactive, and scrollable.
+- **Tamper Resistance:** MutationObserver and 2-second heartbeat checks verify the host element and computed styles. Deleting or hiding the overlay restores it immediately; 3 tamper attempts triggers a royal theme lock screen with a WhatsApp inquiry link.
+- **Degraded & Stamped Assets:** Images are downscaled to $\le 800\text{px}$, quality reduced to 58, and permanently stamped with a diagonal tiled "SAMPLE" watermark into the pixel data.
+- **Audio Clip:** Background music is trimmed to a 25-second, 48kbps preview clip.
+- **Light Deterrents:** Disables context menu, image dragging, text selection, and common inspection keyboard shortcuts; adds a sample footer attribution line.
+- **Expiry & No-Index:** Replaces preview with an expiry notice when past `preview.expiresAt` in `config.js`; injects `<meta name="robots" content="noindex, nofollow">` and `robots.txt` (`Disallow: /`).
+
+### Final Mode Features (`dist/`)
+- **Completely Unwatermarked:** `preview-guard.js`, watermark overlay, and deterrent CSS are completely omitted.
+- **Full Resolution:** All original couple photographs, illustrations, and complete 3.29 MB audio are preserved at 100% quality.
+- **Minified:** Minifies all CSS and JS files for fast static deployment.
+
+---
+
 ## Assets Status
 
 | File | Status | Notes |
