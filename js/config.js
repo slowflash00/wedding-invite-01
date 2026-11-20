@@ -34,7 +34,7 @@ const weddingConfig = {
     postWeddingMessage: 'Our forever has begun ♡',
     timezone:           'Asia/Kolkata',
     displayDates:       '19 & 20 December 2026',
-    displayLocation:    'Riddhi Resorts, Mansarovar Extension',
+    displayLocation:    'Ridhi Resorts, Near Patrakar Colony, Mansarovar Extension',
   },
 
   /* ── INVITATION TEXT ─────────────────────────────────────────────────── */
@@ -67,10 +67,10 @@ const weddingConfig = {
       canopyImage:'assets/decorations/marigold-canopy.webp',
       illustration:'assets/decorations/haldi-sangeet.webp',
       illustrationClass: 'haldi-illustration',
-      venueNote:  'Riddhi Resorts, Patrakar Colony, Mansarovar Extension',
+      venueNote:  'Ridhi Resorts, Near Patrakar Colony, Mansarovar Extension',
       venueSmall: 'All functions · Indian Standard Time',
       functions: [
-        { time: '11:00 AM', datetime: '2026-12-19T11:00:00+05:30', name: 'Haldi — Kesari Rang',  desc: 'A golden beginning' },
+        { time: '11:00 AM', datetime: '2026-12-19T11:00:00+05:30', name: 'Kesari Rang',          desc: 'A golden beginning' },
         { time:  '7:00 PM', datetime: '2026-12-19T19:00:00+05:30', name: 'Ring Ceremony',         desc: 'Blessings & togetherness' },
         { time:  '7:30 PM', datetime: '2026-12-19T19:30:00+05:30', name: 'Shaam Shaandaar',       desc: 'Sangeet · An evening of music & joy' },
       ],
@@ -89,20 +89,20 @@ const weddingConfig = {
       canopyImage: null,
       illustration:'assets/decorations/wedding-pavilion.webp',
       illustrationClass: 'pavilion-illustration',
-      venueNote:  'Riddhi Resorts, Patrakar Colony, Mansarovar Extension',
+      venueNote:  'Ridhi Resorts, Near Patrakar Colony, Mansarovar Extension',
       venueSmall: 'All functions · Indian Standard Time',
       functions: [
-        { time: '11:00 AM', datetime: '2026-12-20T11:00:00+05:30', name: 'Mamera ri Mithas',   desc: 'Followed by lunch · Family, love & tradition' },
-        { time:        '',  datetime: '2026-12-20T18:00:00+05:30', name: 'Baarat — Shubh Aagman', desc: 'A joyful arrival' },
-        { time: 'Midnight', datetime: '2026-12-20T23:59:00+05:30', name: 'Anant Saath',          desc: 'Phere · Our forever begins' },
+        { time: '11:00 AM', datetime: '2026-12-20T11:00:00+05:30', name: 'Mamera - ri - chunari', desc: 'Followed by lunch · Family, love & tradition' },
+        { time:  '7:00 PM', datetime: '2026-12-20T19:00:00+05:30', name: 'Baarat Aagman',         desc: 'A joyful arrival' },
+        { time: 'Midnight', datetime: '2026-12-20T23:59:00+05:30', name: 'Anant Saath',           desc: 'Phere · Our forever begins' },
       ],
     },
   ],
 
   /* ── VENUE ───────────────────────────────────────────────────────────── */
   venue: {
-    name:       'Riddhi Resorts',
-    address:    'Patrakar Colony, Mansarovar Extension',
+    name:       'Ridhi Resorts',
+    address:    'Near Patrakar Colony, Mansarovar Extension, Muhana, Jaipur, Rajasthan 302026',
     tagline:    'All wedding functions',
     dates:      '19 & 20 December 2026',
     timeNote:   'All times in Indian Standard Time',
@@ -156,9 +156,9 @@ const weddingConfig = {
   seo: {
     siteUrl:      'https://your-deployment-url.pages.dev/',
     title:        'Ritika & Kartavya — A Little Invitation to Forever',
-    description:  'Celebrate Ritika & Kartavya: two days of wedding celebrations on 19 & 20 December 2026 at Riddhi Resorts, Mansarovar Extension.',
-    ogDescription:'Join us for two days of wedding celebrations on 19 & 20 December 2026 at Riddhi Resorts, Mansarovar Extension.',
-    ogImageAlt:   "Ritika and Kartavya's wedding invitation: 19 and 20 December 2026 at Riddhi Resorts, Mansarovar Extension, framed by a floral palace arch.",
+    description:  'Celebrate Ritika & Kartavya: two days of wedding celebrations on 19 & 20 December 2026 at Ridhi Resorts, Mansarovar Extension.',
+    ogDescription:'Join us for two days of wedding celebrations on 19 & 20 December 2026 at Ridhi Resorts, Mansarovar Extension.',
+    ogImageAlt:   "Ritika and Kartavya's wedding invitation: 19 and 20 December 2026 at Ridhi Resorts, Mansarovar Extension, framed by a floral palace arch.",
   },
 
   /* ── RSVP (WhatsApp-based) ───────────────────────────────────────────── */

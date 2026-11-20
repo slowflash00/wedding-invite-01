@@ -226,7 +226,7 @@
 
   /* ── GOOGLE CALENDAR REDIRECT ──────────────────────────── */
   function buildGoogleCalendarUrl() {
-    const title = `${config.couple.groom} & ${config.couple.bride} — Wedding Celebrations`;
+    const title = `${config.couple.bride} & ${config.couple.groom} — Wedding Celebrations`;
     const toGCalDate = (d) => {
       const pad = (n) => String(n).padStart(2, '0');
       return `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}00Z`;
@@ -236,7 +236,7 @@
     const end   = new Date(config.wedding.endDate);
     const dates = `${toGCalDate(start)}/${toGCalDate(end)}`;
 
-    let details = `Join us to celebrate the wedding of ${config.couple.groom} & ${config.couple.bride}!\n\n` +
+    let details = `Join us to celebrate the wedding of ${config.couple.bride} & ${config.couple.groom}!\n\n` +
       `SCHEDULE OF CELEBRATIONS:\n`;
 
     config.events.forEach(day => {
@@ -246,14 +246,14 @@
       });
     });
 
-    details += `\nVenue: ${config.venue.name}\nAll times in Indian Standard Time (IST)\n${config.couple.hashtag}`;
+    details += `\nVenue: ${config.venue.name}, ${config.venue.address}\nAll times in Indian Standard Time (IST)\n${config.couple.hashtag}`;
 
     const params = new URLSearchParams({
       action: 'TEMPLATE',
       text: title,
       dates: dates,
       details: details,
-      location: config.venue.name,
+      location: `${config.venue.name}, ${config.venue.address}`,
     });
 
     return `https://calendar.google.com/calendar/render?${params.toString()}`;
