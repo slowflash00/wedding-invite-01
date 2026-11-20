@@ -2,8 +2,8 @@
  * preview-guard.js — Sample Protection Layer
  * 
  * Features:
- * 1. Full-screen diagonal tiled watermark + huge center SAMPLE overlay in closed Shadow DOM
- * 2. In-pixel canvas watermarking on all <img> elements (including gallery and lightbox)
+ * 1. Full-screen sparse diagonal watermark + centered subtle SAMPLE in closed Shadow DOM
+ * 2. In-pixel canvas watermark on all <img> elements (center diagonal stamp + corner stamp)
  * 3. Pseudo-element watermark overlays on CSS background images
  * 4. Context menu (right-click & long-press) prevention
  * 5. Text selection and image dragging prevention
@@ -19,13 +19,23 @@
 (function () {
   'use strict';
 
-  /* ── 0. CONFIGURATION ─────────────────────────────────────────── */
+  /* ── 0. CONFIGURATION & FINE-TUNING CONTROLS ──────────────────── */
   const CONFIG = {
     expiresAt: '2026-12-05T23:59:59+05:30',
     contactWhatsApp: '[NUMBER WITH COUNTRY CODE]',
     watermarkText: 'SAMPLE - ShubhInvite',
     blackoutOnBlur: false,
-    detectDevToolsDesktop: true
+    detectDevToolsDesktop: true,
+
+    /* ── Watermark Appearance Controls (adjust to fine-tune) ──── */
+    watermarkSpacing: 520,           // Width spacing between watermark texts (~3-4 on phone, ~6-8 on desktop)
+    watermarkSpacingHeight: 320,     // Height spacing between watermark texts
+    watermarkOpacity: 0.08,          // Full-screen overlay text opacity (0.07 to 0.09)
+    watermarkFontSize: 13,           // Font size for sparse watermark pattern text
+    watermarkRotation: -30,          // Diagonal angle in degrees (-30deg)
+    centerSampleOpacity: 0.055,      // Large centered "SAMPLE" opacity (0.05 to 0.06)
+    imageWatermarkOpacity: 0.18,     // In-pixel image watermark opacity (0.15 to 0.20)
+    bgWatermarkOpacity: 0.08         // CSS background images overlay opacity
   };
 
   /* ── 1. ROBOTS & EXPOSURE PREVENTION ─────────────────────────── */
@@ -58,31 +68,53 @@
     return 'https://api.whatsapp.com/send?text=' + msg;
   }
 
-  /* ── 3. INLINE SVG WATERMARK PATTERN ──────────────────────────── */
-  function createWatermarkSvgPattern(text) {
-    const w = 340;
-    const h = 190;
+  /* ── 3. SPARSE INLINE SVG WATERMARK PATTERN ─────────────────────── */
+  const tileW = (typeof CONFIG.watermarkSpacing === 'object' && CONFIG.watermarkSpacing.width)
+    ? CONFIG.watermarkSpacing.width
+    : (Number(CONFIG.watermarkSpacing) || 520);
+  const tileH = (typeof CONFIG.watermarkSpacing === 'object' && CONFIG.watermarkSpacing.height)
+    ? CONFIG.watermarkSpacing.height
+    : (Number(CONFIG.watermarkSpacingHeight) || Math.round(tileW * 0.62) || 320);
+
+  function createSparseWatermarkSvg(text, opacity, fontSize, rot, w, h) {
+    const width = w || 520;
+    const height = h || 320;
+    const size = fontSize || 13;
+    const angle = (typeof rot === 'number') ? rot : -30;
+    const op = (typeof opacity === 'number') ? opacity : 0.08;
+
     const escapedText = (text || 'SAMPLE - ShubhInvite')
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
 
-    const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '">' +
+    // High contrast dual-layer: subtle dark stroke + crisp white fill
+    const strokeOp = Math.min(1, (op * 0.95).toFixed(3));
+    const fillOp = Math.min(1, (op * 1.25).toFixed(3));
+
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' + width + '" height="' + height + '" viewBox="0 0 ' + width + ' ' + height + '">' +
       '<style>' +
-        '.wt { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 15px; font-weight: 800; letter-spacing: 2px; }' +
+        '.wt { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: ' + size + 'px; font-weight: 700; letter-spacing: 2px; }' +
       '</style>' +
-      '<g transform="rotate(-30 ' + (w / 2) + ' ' + (h / 2) + ')">' +
-        '<!-- Layer 1: Contrast Stroke -->' +
-        '<text x="20" y="35" class="wt" fill="#ffffff" fill-opacity="0.14" stroke="#000000" stroke-width="2.5" stroke-opacity="0.16" paint-order="stroke fill">' + escapedText + '</text>' +
-        '<text x="170" y="95" class="wt" text-anchor="middle" fill="#ffffff" fill-opacity="0.15" stroke="#000000" stroke-width="2.5" stroke-opacity="0.18" paint-order="stroke fill">' + escapedText + '</text>' +
-        '<text x="200" y="155" class="wt" fill="#ffffff" fill-opacity="0.14" stroke="#000000" stroke-width="2.5" stroke-opacity="0.16" paint-order="stroke fill">' + escapedText + '</text>' +
+      '<g transform="rotate(' + angle + ' ' + (width / 2) + ' ' + (height / 2) + ')">' +
+        '<text x="' + (width / 2) + '" y="' + (height / 2) + '" class="wt" text-anchor="middle" dominant-baseline="central" ' +
+          'fill="#ffffff" fill-opacity="' + fillOp + '" stroke="#000000" stroke-width="2" stroke-opacity="' + strokeOp + '" paint-order="stroke fill">' +
+          escapedText +
+        '</text>' +
       '</g>' +
     '</svg>';
 
     return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
   }
 
-  const watermarkSvgDataUri = createWatermarkSvgPattern(CONFIG.watermarkText);
+  const watermarkSvgDataUri = createSparseWatermarkSvg(
+    CONFIG.watermarkText,
+    CONFIG.watermarkOpacity,
+    CONFIG.watermarkFontSize,
+    CONFIG.watermarkRotation,
+    tileW,
+    tileH
+  );
 
   /* ── 4. INJECT GLOBAL PROTECTIVE STYLES ───────────────────────── */
   const STYLE_ID = 'shubh-sample-guard-styles';
@@ -90,6 +122,8 @@
     if (document.getElementById(STYLE_ID)) return;
     const style = document.createElement('style');
     style.id = STYLE_ID;
+    const bgOpacity = (typeof CONFIG.bgWatermarkOpacity === 'number') ? CONFIG.bgWatermarkOpacity : 0.08;
+
     style.textContent = `
       /* Disable text selection and dragging globally */
       *:not(input):not(textarea):not([contenteditable="true"]) {
@@ -118,7 +152,7 @@
           visibility: hidden !important;
         }
       }
-      /* Watermark on CSS background containers */
+      /* Subtle watermark overlay on CSS background containers */
       .hero-bg::after,
       .hero-section::after,
       .opening-backdrop::after,
@@ -135,10 +169,10 @@
         inset: 0 !important;
         background-image: url("${watermarkSvgDataUri}") !important;
         background-repeat: repeat !important;
-        background-size: 340px 190px !important;
+        background-size: ${tileW}px ${tileH}px !important;
         pointer-events: none !important;
         z-index: 2 !important;
-        opacity: 0.20 !important;
+        opacity: ${bgOpacity} !important;
       }
     `;
     const target = document.head || document.documentElement;
@@ -182,6 +216,8 @@
 
     shadowRoot = hostEl.attachShadow({ mode: 'closed' });
 
+    const centerOpacity = (typeof CONFIG.centerSampleOpacity === 'number') ? CONFIG.centerSampleOpacity : 0.055;
+
     // Inner shadow HTML & styles
     const shadowContainer = document.createElement('div');
     shadowContainer.className = 'pg-root';
@@ -199,29 +235,29 @@
           overflow: hidden;
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        /* Full-screen diagonal tiled watermark */
+        /* Sparse diagonal watermark pattern */
         .pg-pattern {
           position: absolute;
           inset: -120px;
           background-image: url("${watermarkSvgDataUri}");
           background-repeat: repeat;
-          background-size: 340px 190px;
-          opacity: 0.95;
+          background-size: ${tileW}px ${tileH}px;
+          opacity: 1;
           pointer-events: none;
         }
-        /* Giant centered SAMPLE watermark */
+        /* Single large centered SAMPLE watermark (subtle, 0.05-0.06) */
         .pg-center-sample {
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%) rotate(-25deg);
-          font-size: min(20vw, 150px);
+          font-size: min(18vw, 130px);
           font-weight: 900;
           letter-spacing: 0.18em;
           text-transform: uppercase;
           color: #000000;
-          opacity: 0.09;
-          text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+          opacity: ${centerOpacity};
+          text-shadow: 0 0 6px #ffffff, 0 0 12px #ffffff;
           user-select: none;
           white-space: nowrap;
           pointer-events: none;
@@ -492,31 +528,51 @@
   const generatedBlobUrls = new Set();
 
   function stampCanvasWatermark(ctx, w, h) {
+    const opacity = (typeof CONFIG.imageWatermarkOpacity === 'number') ? CONFIG.imageWatermarkOpacity : 0.18;
+    const rotDeg = (typeof CONFIG.watermarkRotation === 'number') ? CONFIG.watermarkRotation : -30;
+    const rot = (rotDeg * Math.PI) / 180;
+
+    const strokeOp = Math.min(1, (opacity * 0.9).toFixed(3));
+    const fillOp = Math.min(1, (opacity * 1.15).toFixed(3));
+
+    // 1. One medium-sized diagonal "SAMPLE" stamped across the center
     ctx.save();
-    const text = 'SAMPLE';
-    const fontSize = Math.max(16, Math.round(Math.min(w, h) / 9.5));
-    ctx.font = '900 ' + fontSize + 'px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+    const centerText = 'SAMPLE';
+    const centerFontSize = Math.max(18, Math.round(Math.min(w, h) / 7.2));
+    ctx.font = '900 ' + centerFontSize + 'px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
-    const diag = Math.sqrt(w * w + h * h);
-    const stepX = fontSize * 4.6;
-    const stepY = fontSize * 3.2;
-
     ctx.translate(w / 2, h / 2);
-    ctx.rotate((-30 * Math.PI) / 180);
+    ctx.rotate(rot);
 
-    for (let y = -diag; y <= diag; y += stepY) {
-      for (let x = -diag; x <= diag; x += stepX) {
-        // High-contrast double layer (dark stroke + bright fill)
-        ctx.strokeStyle = 'rgba(0, 0, 0, 0.42)';
-        ctx.lineWidth = Math.max(2, Math.round(fontSize / 7.5));
-        ctx.strokeText(text, x, y);
+    // Subtle dark stroke + bright fill for readability on both light and dark photos
+    ctx.strokeStyle = 'rgba(0, 0, 0, ' + strokeOp + ')';
+    ctx.lineWidth = Math.max(2, Math.round(centerFontSize / 9));
+    ctx.strokeText(centerText, 0, 0);
 
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.68)';
-        ctx.fillText(text, x, y);
-      }
-    }
+    ctx.fillStyle = 'rgba(255, 255, 255, ' + fillOp + ')';
+    ctx.fillText(centerText, 0, 0);
+    ctx.restore();
+
+    // 2. Small "SAMPLE" in the bottom-right corner
+    ctx.save();
+    const cornerText = 'SAMPLE';
+    const cornerFontSize = Math.max(11, Math.round(centerFontSize * 0.35));
+    ctx.font = '800 ' + cornerFontSize + 'px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'bottom';
+
+    const pad = Math.max(10, Math.round(Math.min(w, h) * 0.04));
+    ctx.translate(w - pad, h - pad);
+    ctx.rotate(rot);
+
+    ctx.strokeStyle = 'rgba(0, 0, 0, ' + strokeOp + ')';
+    ctx.lineWidth = Math.max(1.5, Math.round(cornerFontSize / 8));
+    ctx.strokeText(cornerText, 0, 0);
+
+    ctx.fillStyle = 'rgba(255, 255, 255, ' + fillOp + ')';
+    ctx.fillText(cornerText, 0, 0);
     ctx.restore();
   }
 
