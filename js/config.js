@@ -62,10 +62,10 @@ const weddingConfig = {
   events: [
     {
       day:        1,
-      chapter:    'I / KESARI RANG & MUSIC',
+      chapter:    'I / CELEBRATIONS & MUSIC',
       eyebrow:    'DAY ONE · THE FESTIVITIES',
       heading:    'Painted in joy',
-      mood:       'A little haldi. A little music. A whole lot of love.',
+      mood:       'A little laughter. A little music. A whole lot of love.',
       date:       '2026-12-19',
       displayDate:'19',
       month:      'December 2026',
@@ -121,8 +121,8 @@ const weddingConfig = {
     {
       thumb:   'assets/images/couple-image.webp',
       full:    'assets/images/couple-image.webp',
-      alt:     'Ritika and Kartavya — a beautiful beginning',
-      caption: 'A beautiful beginning',
+      alt:     'Ritika and Kartavya — Always and Forever',
+      caption: 'Always and Forever',
     },
     // Add more photos here — each object follows the same shape
   ],
